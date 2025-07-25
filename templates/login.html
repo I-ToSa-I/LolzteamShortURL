@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{{siteName}} | Login{% endblock %}
+
+{% block developerUrl %}{{developerUrl}}{% endblock %}
+{% block donateUrl %}{{donateUrl}}{% endblock %}
+
+{% block content %}
+
+<div class="siteName">
+    <div style="">
+        <h1>{{siteName}}</h1> 
+    </div>
+    <div class="siteDescription">
+        Sign In
+    </div>
+</div>
+<div class="block-container">
+    <div class="block">
+        <form method="POST" action="" class="form">
+        {{ login_form.hidden_tag() }}
+            <label for="email">Email:</label>
+            {{ login_form.email(placeholder = "Email") }}
+            <label for="password">Password:</label>
+            {{ login_form.password(placeholder = "Password") }}
+            {% if messages %}
+                <div class="notice" style="color: #F37177;">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="notice">
+                Don't have an account yet? <a href="{{ url_for("register") }}" style="font-weight: 500;">Sign Up</a>
+            </div>
+            {{ login_form.submit(class="button primary") }}
+        </form>
+    </div>
+</div>
+    {% endblock %}

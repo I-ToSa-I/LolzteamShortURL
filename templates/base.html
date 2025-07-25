@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="navigation">
+            <a href="https://lolz.live/" target="_blank" class="button primary"><span>Lolzteam</span></a>
+            <a href="{% block developerUrl %}{% endblock %}" target="_blank" class="button primary"><span>Developer</span></a>
+            <a href="{% block donateUrl %}{% endblock %}" target="_blank" class="button primary"><span>Donate</span></a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for("urls") }}" class="button primary navigationRight"><span>My URLs</span></a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="button primary navigationRight"><span>Sign In</span></a>
+            {% endif %}
+        </div>
+    </header>
+    <div class="pageWrapper">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

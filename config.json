@@ -1,0 +1,10 @@
+{
+    "siteName": "Lolzteam Short URL",
+    "sitePort": 8080,
+    "maxUrlLength": 20,
+    "minUrlLength": 3,
+    "developerInformation": {
+        "developerLolz": "https://lolz.live/tosa",
+        "donateUrl": "https://lzt.market/balance/transfer?user_id=4810752&hold=0&comment=Поддержка+проекта"
+    }
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{{siteName}} | My URLs{% endblock %}
+
+{% block developerUrl %}{{developerUrl}}{% endblock %}
+{% block donateUrl %}{{donateUrl}}{% endblock %}
+
+{% block content %}
+
+<div class="siteName">
+    <div style="">
+        <h1>{{siteName}}</h1> 
+    </div>
+    <div class="siteDescription">
+        <a href="{{ url_for("urls_create") }}" class="button primary"><span>Create URL</span></a>
+    </div>
+</div>
+<div class="block-urls">
+    {% if urls %}
+    {% for url in urls %}
+        <div class="block-url">
+            <h3>{{ host }}/{{ url.name }}</h3>
+            <div class="url-manage">
+                <div class="views-block">
+                    <span class="viewsIcon"></span>
+                    <span class="views">{{ url.views }}</span>
+                </div>
+                <div class="manage-block">
+                    <a href="{{ url_for("urls_edit", url_id=url.id) }}"><span class="editIcon"></span></a>
+                    <a href="{{ url_for("urls_delete", url_id=url.id) }}"><span class="deleteIcon"></span></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+    <h2 style="color: white;">There are no links yet, please create at least one.</h2>
+    {% endif %}
+</div>
+    {% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}{{siteName}} | Edit URL{% endblock %}
+
+{% block developerUrl %}{{developerUrl}}{% endblock %}
+{% block donateUrl %}{{donateUrl}}{% endblock %}
+
+{% block content %}
+
+<div class="siteName">
+    <div style="">
+        <h1>{{siteName}}</h1> 
+    </div>
+</div>
+<div class="block-container">
+    <div class="block">
+        <div class="block-title"><h1>Edit URL</h1></div>
+        <form method="POST" action="" class="form">
+        {{ edit_url_form.hidden_tag() }}
+            <label for="name">URL Name:</label>
+            {{ edit_url_form.name(placeholder = "URL Name", value=url.name) }}
+            <label for="link">URL Link:</label>
+            {{ edit_url_form.link(placeholder = "URL Link", value=url.link) }}
+            {% if messages %}
+                <div class="notice" style="color: #F37177;">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="buttonsGroup">
+                {{ edit_url_form.submit(class="button primary") }}
+                <a href="{{ url_for("urls_delete", url_id=url.id) }}" class="button danger"><span>Delete</span></a>
+            </div>
+        </form>
+    </div>
+</div>
+    {% endblock %}

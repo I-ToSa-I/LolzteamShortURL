@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{siteName}} | Main page{% endblock %}
+
+{% block developerUrl %}{{developerUrl}}{% endblock %}
+{% block donateUrl %}{{donateUrl}}{% endblock %}
+
+{% block content %}
+
+<div class="siteName">
+    <div style="">
+        <h1>{{siteName}}</h1> 
+    </div>
+    <div class="siteDescription">
+        A quick and effective way to shorten links for advertising
+    </div>
+</div>
+<div class="siteLogo">
+    <img id="siteLogo" src="{{ url_for('static', filename='lolzteam-logo.png') }}">
+</div>
+    {% endblock %}

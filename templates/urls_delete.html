@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{siteName}} | Delete URL{% endblock %}
+
+{% block developerUrl %}{{developerUrl}}{% endblock %}
+{% block donateUrl %}{{donateUrl}}{% endblock %}
+
+{% block content %}
+
+<div class="siteName">
+    <div style="">
+        <h1>{{siteName}}</h1> 
+    </div>
+</div>
+<div class="block-container">
+    <div class="block">
+        <div class="block-title"><h1>Delete URL</h1></div>
+        <h2>Are you sure you want to remove this link?</h2>
+        <div><h3>{{ host }}/{{ url.name }}</h3></div>
+        <form method="POST" action="" class="form">
+            {{ delete_url_form.hidden_tag() }}
+            <div class="buttonsGroup">
+                {{ delete_url_form.submit(class="button danger", value="Delete") }}
+                <a href="{{ url_for("urls_edit", url_id=url.id) }}" class="button primary"><span>Back</span></a>
+            </div>
+        </form>
+    </div>
+</div>
+    {% endblock %}

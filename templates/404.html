@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{siteName}} | Oops! Something went wrong... {% endblock %}
+
+{% block developerUrl %}{{developerUrl}}{% endblock %}
+{% block donateUrl %}{{donateUrl}}{% endblock %}
+
+{% block content %}
+
+<div class="siteName">
+    <div style="">
+        <h1>{{siteName}}</h1> 
+    </div>
+    <div class="siteDescription">
+        Oops! Something went wrong...
+    </div>
+</div>
+<div class="block-container">
+    <div class="block">
+        <div class="error-container">
+            <img src="https://nztcdn.com/files/e087406d-ff9d-42f9-a84b-ff3e386c9ace.webp">
+        </div>
+        <div class="text-container">
+            The requested page was not found.<br>
+            Return to the main page and try again
+        </div>
+        <div>
+            <a href="{{ url_for('index_page') }}" class="button primary"><span>Back to main page</span></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

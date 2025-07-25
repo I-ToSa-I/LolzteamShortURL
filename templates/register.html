@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}{{siteName}} | Register{% endblock %}
+
+{% block developerUrl %}{{developerUrl}}{% endblock %}
+{% block donateUrl %}{{donateUrl}}{% endblock %}
+
+{% block content %}
+<div class="siteName">
+    <div style="">
+        <h1>{{siteName}}</h1> 
+    </div>
+    <div class="siteDescription">
+        Sign Up
+    </div>
+</div>
+<div class="block-container">
+    <div class="block">
+        <form method="POST" action="" class="form">
+        {{ register_form.hidden_tag() }}
+            <label for="email">Email:</label>
+            {{ register_form.email( placeholder = "Email") }}
+            <label for="password">Password:</label>
+            {{ register_form.password( placeholder = "Password") }}
+            <label for="confirm_password">Confirm password:</label>
+            {{ register_form.confirm_password( placeholder = "Confirm Password") }}
+            {% if messages %}
+                <div class="notice" style="color: #F37177;">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="notice">
+                Already have an account? <a href="{{ url_for("login") }}" style="font-weight: 500;">Sign In</a>
+            </div>
+            {{ register_form.submit(class="button primary") }}
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}{{siteName}} | Create URL{% endblock %}
+
+{% block developerUrl %}{{developerUrl}}{% endblock %}
+{% block donateUrl %}{{donateUrl}}{% endblock %}
+
+{% block content %}
+
+<div class="siteName">
+    <div style="">
+        <h1>{{siteName}}</h1> 
+    </div>
+</div>
+<div class="block-container">
+    <div class="block">
+        <div class="block-title"><h1>Create URL</h1></div>
+        <form method="POST" action="" class="form">
+        {{ create_url_form.hidden_tag() }}
+            <label for="name">URL Name:</label>
+            {{ create_url_form.name(placeholder = "URL Name") }}
+            <label for="link">URL Link:</label>
+            {{ create_url_form.link(placeholder = "URL Link") }}
+            {% if messages %}
+                <div class="notice" style="color: #F37177;">
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {{ create_url_form.submit(class="button primary") }}
+        </form>
+    </div>
+</div>
+    {% endblock %}
