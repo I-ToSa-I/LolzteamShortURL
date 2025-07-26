@@ -4,6 +4,7 @@ from flask_login import login_user, current_user, login_required, LoginManager, 
 from flask_wtf.csrf import CSRFProtect
 from flask_bcrypt import Bcrypt
 
+
 import forms
 
 import json
